@@ -30,26 +30,17 @@ def create_app():
     csrf.init_app(app)
 
     # Importa e registra blueprints
-    try:
-        from app.routes import main_bp
-        app.register_blueprint(main_bp)
-    except Exception:
-        pass  # Blueprint opcional, não trava deploy
-    try:
-        from app.routes.compras import compras_bp
-        app.register_blueprint(compras_bp)
-    except Exception:
-        pass
-    # Adicione outros blueprints conforme necessário
+    # Registra blueprints restaurados
+    from app.routes import main_bp
+    app.register_blueprint(main_bp)
+    from app.routes.compras import compras_bp
+    app.register_blueprint(compras_bp)
+    from app.routes.receitas import receitas_bp
+    app.register_blueprint(receitas_bp)
 
     @app.route("/healthz")
     def healthz():
         return "ok"
-
-    from flask import render_template
-    @app.route("/")
-    def index():
-        return render_template("index.html")
 
     return app
 
