@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # setup_aleropreco.sh
-# Script simplificado para subir seu projeto AleroPreço ao GitHub usando SSH
+# Script simplificado para subir seu projeto AleroPreco ao GitHub usando SSH
 # Salve em ~/aleropreco/setup_aleropreco.sh e execute:
 #   chmod +x setup_aleropreco.sh
 #   ./setup_aleropreco.sh
@@ -40,19 +40,31 @@ instance/
 venv/
 EOF
 
-cat > requirements.txt << 'EOF'
-flask==3.0.3
-flask-sqlalchemy==3.1.1
-flask-migrate==4.1.0
-flask-login==0.6.3
-flask-wtf==1.2.1
-email-validator==2.2.0
-python-dotenv==1.0.1
-sqlalchemy==2.0.40
-wtforms==3.1.2
-gunicorn==21.2.0
+# 2. Gerar (ou reutilizar) sua chave SSH sem prompt
+ssh-keygen -t ed25519 -C "coletivoaruatemvoz@gmail.com" -f ~/.ssh/id_ed25519 -N "" || true
+
+# 3. Remover remotes antigos e adicionar o remote via SSH
+git init
+git remote remove origin 2>/dev/null || true
+git remote add origin git@github.com:danielarraesreino/aleropreco.git
+
+# 4. Refatorar requirements.txt mantendo backup
+mv requirements.txt requirements.full.txt 2>/dev/null || true
+<<<<<<< HEAD
+=======
+# 5. Atualizar .gitignore e .env.example com dados reais
+cat > .gitignore << 'EOF'
+__pycache__/
+*.pyc
+*.db
+.env
+.flaskenv
+instance/
+.vscode/
+*.sqlite3
 EOF
 
+>>>>>>> Inicialização do projeto AleroPreço
 cat > .env.example << 'EOF'
 SECRET_KEY='another_super_secret_alerocusto_key_!@#$%'
 DATABASE_URL='sqlite:///alerocusto.db'
@@ -63,9 +75,7 @@ echo "6) Commit das mudanças"
 git add .
 git commit -m "Setup .gitignore, requirements e .env.example"
 
-# 7) Push final para GitHub
-echo "7) Enviando para GitHub"
+git branch -M main
 git push -u origin main
 
-echo "✓ Projeto AleroPreço disponível em git@github.com:danielarraesreino/aleropreco.git"
-
+echo "✓ Projeto AleroPreco disponível em git@github.com:danielarraesreino/aleropreco.git"
