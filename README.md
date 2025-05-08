@@ -30,7 +30,7 @@ AleroPreco é um sistema de controle de custos para restaurantes, bares e cozinh
 
 ## Por quê?
 
-Porque controlar custos é mais que uma planilha: é um estado de espírito. É saber que cada ingrediente tem uma história, um preço e um impacto no seu negócio. O AleroPreço nasceu da busca pelo equilíbrio entre sabor e sustentabilidade financeira.
+Porque controlar custos é mais que uma planilha: é um estado de espírito. É saber que cada ingrediente tem uma história, um preço e um impacto no seu negócio. O AleroPreco nasceu da busca pelo equilíbrio entre sabor e sustentabilidade financeira.
 
 ## Instalação
 

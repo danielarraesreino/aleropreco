@@ -113,7 +113,7 @@ instance/
 venv/
 EOF
 =======
-# Use este script para configurar SSH e subir o projeto AleroPreço no GitHub
+# Use este script para configurar SSH e subir o projeto AleroPreco no GitHub
 # Passos:
 # 1. Salve este conteúdo em ~/aleropreco/setup_aleropreco.sh
 # 2. Execute:
@@ -121,11 +121,11 @@ EOF
 #      ~/aleropreco/setup_aleropreco.sh
 # 3. Aguarde a conclusão.
 =======
-# Use este script para configurar SSH, sincronizar e subir o projeto AleroPreço no GitHub
+# Use este script para configurar SSH, sincronizar e subir o projeto AleroPreco no GitHub
 # Salve em ~/aleropreco/setup_aleropreco.sh e execute:
 #   chmod +x setup_aleropreco.sh
 #   ./setup_aleropreco.sh
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 
 set -euo pipefail
 
@@ -142,11 +142,11 @@ else
   echo "Chave SSH já existe: $SSH_KEY"
 fi
 <<<<<<< HEAD
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 =======
 # Ajustar permissões da chave
 chmod 600 "$SSH_KEY"
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 
 # 2. Iniciar ssh-agent e adicionar chave
 echo "[2/9] Iniciando ssh-agent e adicionando chave..."
@@ -174,7 +174,7 @@ mv requirements.txt requirements.full.txt 2>/dev/null || true
 =======
 ngit_remote=$(git remote)
 =======
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 if git remote | grep -q origin; then
   git remote remove origin
 fi
@@ -209,15 +209,15 @@ EOF
 <<<<<<< HEAD
 # 5. Atualizar .gitignore e .env.example
 echo "[5/7] Atualizando .gitignore e .env.example..."
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 =======
 # 6. Atualizar .gitignore e .env.example
 echo "[6/8] Atualizando .gitignore e .env.example..."
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 =======
 # 7. Atualizar .gitignore e .env.example
 echo "[7/9] Atualizando .gitignore e .env.example..."
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 cat > .gitignore << 'EOF'
 __pycache__/
 *.pyc
@@ -230,7 +230,7 @@ instance/
 venv/
 EOF
 
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 cat > .env.example << 'EOF'
 SECRET_KEY='another_super_secret_alerocusto_key_!@#$%'
 DATABASE_URL='sqlite:///alerocusto.db'
@@ -254,18 +254,18 @@ echo "[6/7] Commitando e enviando ao GitHub..."
 =======
 # 7. Commit e push
 echo "[7/8] Commitando e enviando ao GitHub..."
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 =======
 # 8. Commit e push
 echo "[8/9] Commitando e enviando ao GitHub..."
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
 git add .
 # commit only if changes exist
-git diff --cached --quiet || git commit -m "Inicialização do projeto AleroPreço"
+git diff --cached --quiet || git commit -m "Inicialização do projeto AleroPreco"
 git branch -M main
 git push -u origin main
 
 # 9. Concluir
 echo "[9/9] Concluído! Repositório disponível: git@github.com:danielarraesreino/aleropreco.git"
 
->>>>>>> Inicialização do projeto AleroPreço
+>>>>>>> Inicialização do projeto AleroPreco
