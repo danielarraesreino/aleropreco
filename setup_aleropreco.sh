@@ -133,7 +133,7 @@ set -euo pipefail
 PROJECT_DIR="${HOME}/aleropreco"
 cd "$PROJECT_DIR" || { echo "Erro: pasta $PROJECT_DIR não encontrada"; exit 1; }
 
-echo "[1/8] Gerenciando chave SSH..."
+echo "[1/9] Gerenciando chave SSH..."
 SSH_KEY="${HOME}/.ssh/id_ed25519"
 if [ ! -f "$SSH_KEY" ]; then
   ssh-keygen -t ed25519 -C "coletivoaruatemvoz@gmail.com" -f "$SSH_KEY" -N ""
@@ -141,15 +141,25 @@ if [ ! -f "$SSH_KEY" ]; then
 else
   echo "Chave SSH já existe: $SSH_KEY"
 fi
+<<<<<<< HEAD
+>>>>>>> Inicialização do projeto AleroPreço
+=======
+# Ajustar permissões da chave
+chmod 600 "$SSH_KEY"
 >>>>>>> Inicialização do projeto AleroPreço
 
-# 2. Adicionar GitHub aos known_hosts para evitar prompt
-echo "[2/8] Adicionando github.com aos known_hosts..."
+# 2. Iniciar ssh-agent e adicionar chave
+echo "[2/9] Iniciando ssh-agent e adicionando chave..."
+eval "$(ssh-agent -s)"
+ssh-add "$SSH_KEY"
+
+# 3. Adicionar GitHub aos known_hosts para evitar prompt
+echo "[3/9] Adicionando github.com aos known_hosts..."
 mkdir -p "${HOME}/.ssh"
 ssh-keyscan github.com >> "${HOME}/.ssh/known_hosts" 2>/dev/null || true
 
-# 3. Configurar remote Git via SSH
-echo "[3/8] Configurando remote Git..."
+# 4. Configurar remote Git via SSH
+echo "[4/9] Configurando remote Git..."
 git init
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -170,15 +180,15 @@ if git remote | grep -q origin; then
 fi
 git remote add origin git@github.com:danielarraesreino/aleropreco.git
 
-# 4. Sincronizar com remoto (pull --rebase)
-echo "[4/8] Sincronizando com remoto..."
+# 5. Sincronizar com remoto (pull --rebase)
+echo "[5/9] Sincronizando com remoto..."
 git fetch origin main || true
 if git show-ref --verify --quiet refs/remotes/origin/main; then
   git pull --rebase origin main || true
 fi
 
-# 5. Refatorar requirements.txt
-echo "[5/8] Atualizando requirements.txt..."
+# 6. Refatorar requirements.txt
+echo "[6/9] Atualizando requirements.txt..."
 if [ -f requirements.txt ]; then
   mv requirements.txt requirements.full.txt
 fi
@@ -196,12 +206,17 @@ gunicorn==21.2.0
 EOF
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 5. Atualizar .gitignore e .env.example
 echo "[5/7] Atualizando .gitignore e .env.example..."
 >>>>>>> Inicialização do projeto AleroPreço
 =======
 # 6. Atualizar .gitignore e .env.example
 echo "[6/8] Atualizando .gitignore e .env.example..."
+>>>>>>> Inicialização do projeto AleroPreço
+=======
+# 7. Atualizar .gitignore e .env.example
+echo "[7/9] Atualizando .gitignore e .env.example..."
 >>>>>>> Inicialização do projeto AleroPreço
 cat > .gitignore << 'EOF'
 __pycache__/
@@ -223,6 +238,7 @@ EOF
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 6) Commit das alterações locais
 echo "6) Commit das mudanças"
 git add .
@@ -239,13 +255,17 @@ echo "[6/7] Commitando e enviando ao GitHub..."
 # 7. Commit e push
 echo "[7/8] Commitando e enviando ao GitHub..."
 >>>>>>> Inicialização do projeto AleroPreço
+=======
+# 8. Commit e push
+echo "[8/9] Commitando e enviando ao GitHub..."
+>>>>>>> Inicialização do projeto AleroPreço
 git add .
 # commit only if changes exist
 git diff --cached --quiet || git commit -m "Inicialização do projeto AleroPreço"
 git branch -M main
 git push -u origin main
 
-# 8. Concluir
-echo "[8/8] Concluído! Repositório disponível: git@github.com:danielarraesreino/aleropreco.git"
+# 9. Concluir
+echo "[9/9] Concluído! Repositório disponível: git@github.com:danielarraesreino/aleropreco.git"
 
 >>>>>>> Inicialização do projeto AleroPreço
