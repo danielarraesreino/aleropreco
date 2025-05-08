@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - AleroPreco{% endblock %}
+{% block content %}
+<h1 class="mb-4">Dashboard</h1>
+<p class="lead">Visão geral do sistema de custos do restaurante.</p>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-bg-primary mb-3"><div class="card-body"><h5 class="card-title">Produtos</h5><p class="card-text">Resumo dos produtos cadastrados.</p></div></div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-success mb-3"><div class="card-body"><h5 class="card-title">Fornecedores</h5><p class="card-text">Resumo dos fornecedores.</p></div></div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-warning mb-3"><div class="card-body"><h5 class="card-title">Compras</h5><p class="card-text">Resumo das compras realizadas.</p></div></div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-info mb-3"><div class="card-body"><h5 class="card-title">Receitas</h5><p class="card-text">Resumo das receitas cadastradas.</p></div></div>
+    </div>
+</div>
+{% endblock %}

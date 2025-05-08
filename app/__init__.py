@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -33,14 +33,33 @@ def create_app():
     def load_user(user_id):
         return None
 
+    # Importa modelos para o Flask-Migrate
+    from app.models.produto import Produto
+    from app.models.fornecedor import Fornecedor
+    from app.models.receita import Receita
+
     # Importa e registra blueprints
     # Registra blueprints restaurados
     from app.routes import main_bp
-    app.register_blueprint(main_bp)
     from app.routes.compras import compras_bp
-    app.register_blueprint(compras_bp)
     from app.routes.receitas import receitas_bp
+    from app.routes.produtos import produtos_bp
+    from app.routes.fornecedores import fornecedores_bp
+    from app.routes.dashboard import dashboard_bp
+    app.register_blueprint(main_bp)
+    app.register_blueprint(compras_bp)
     app.register_blueprint(receitas_bp)
+    app.register_blueprint(produtos_bp)
+    app.register_blueprint(fornecedores_bp)
+    app.register_blueprint(dashboard_bp)
+
+    @app.errorhandler(404)
+    def not_found_error(error):
+        return render_template('404.html'), 404
+
+    @app.errorhandler(500)
+    def internal_error(error):
+        return render_template('500.html'), 500
 
     @app.route("/healthz")
     def healthz():

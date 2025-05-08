@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>AleroPreco</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-</head>
-<body class="bg-light">
-    <div class="container py-5">
-        <div class="text-center">
-            <h1 class="display-4">AleroPreco</h1>
-            <p class="lead">Bem-vindo ao sistema de controle de custos para restaurantes!</p>
-            <hr>
-            <p>
-                <span class="badge bg-success">Flask Online</span>
-                <span class="badge bg-info">Render</span>
-            </p>
-            <p class="mt-4">Se você está vendo esta página, o deploy está funcionando! 🎉</p>
+{% extends 'base.html' %}
+{% block title %}AleroPreco - Controle de Custos{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+        <div class="card shadow-lg">
+            <div class="card-body p-5 text-center">
+                <h1 class="display-4 mb-3">AleroPreco</h1>
+                <p class="lead mb-4">Bem-vindo ao sistema de controle de custos para restaurantes!</p>
+                <hr>
+                <p class="mb-3">
+                    Porque controlar custos é mais que uma planilha: é um estado de espírito.<br>
+                    É saber que cada ingrediente tem uma história, um preço e um impacto no seu negócio.<br>
+                    O AleroPreco nasceu da busca pelo equilíbrio entre sabor e sustentabilidade financeira.
+                </p>
+                <div class="my-4">
+                    <span class="badge bg-success">Flask Online</span>
+                    <span class="badge bg-info">Render</span>
+                </div>
+                <a href="/dashboard" class="btn btn-primary btn-lg mt-2">Acessar Dashboard</a>
+            </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

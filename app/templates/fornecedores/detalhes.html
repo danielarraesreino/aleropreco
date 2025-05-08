@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes do Fornecedor - AleroPreco{% endblock %}
+{% block content %}
+<h1>Detalhes do Fornecedor #{{ fornecedor.id }}</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><b>Nome:</b> {{ fornecedor.nome }}</li>
+    <li class="list-group-item"><b>CNPJ:</b> {{ fornecedor.cnpj }}</li>
+</ul>
+<a href="/fornecedores/" class="btn btn-secondary">Voltar para lista</a>
+<a href="/fornecedores/{{ fornecedor.id }}/editar" class="btn btn-warning">Editar</a>
+{% endblock %}

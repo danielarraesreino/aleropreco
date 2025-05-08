@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Fornecedores - AleroPreco{% endblock %}
+{% block content %}
+<h1>Fornecedores</h1>
+<a href="/fornecedores/novo" class="btn btn-primary mb-3">Novo Fornecedor</a>
+<table class="table table-striped">
+    <thead><tr><th>ID</th><th>Nome</th><th>CNPJ</th><th></th></tr></thead>
+    <tbody>
+        {% for fornecedor in fornecedores %}
+        <tr>
+            <td>{{ fornecedor.id }}</td>
+            <td>{{ fornecedor.nome }}</td>
+            <td>{{ fornecedor.cnpj }}</td>
+            <td><a class="btn btn-sm btn-info" href="/fornecedores/{{ fornecedor.id }}">Detalhes</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

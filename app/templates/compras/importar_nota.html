@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Importar Nota Fiscal</h1>
+<form method="post" enctype="multipart/form-data" class="mt-4">
+    <div class="mb-3">
+        <label for="nota_xml" class="form-label">Arquivo XML da Nota Fiscal</label>
+        <input type="file" class="form-control" id="nota_xml" name="nota_xml" accept=".xml" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Importar Nota</button>
+    <a href="{{ url_for('compras.lista_compras') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

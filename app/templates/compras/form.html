@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Editar' if compra else 'Nova' }} Compra - AleroPreco{% endblock %}
+{% block content %}
+<h1>{{ 'Editar' if compra else 'Nova' }} Compra</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="fornecedor" class="form-label">Fornecedor</label>
+        <input type="text" class="form-control" id="fornecedor" name="fornecedor" value="{{ compra.fornecedor if compra else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="valor" class="form-label">Valor</label>
+        <input type="number" min="0" step="0.01" class="form-control" id="valor" name="valor" value="{{ compra.valor if compra else '' }}" required>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="/compras/" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

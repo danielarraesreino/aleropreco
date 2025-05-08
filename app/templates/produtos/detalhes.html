@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes do Produto - AleroPreco{% endblock %}
+{% block content %}
+<h1>Detalhes do Produto #{{ produto.id }}</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><b>Nome:</b> {{ produto.nome }}</li>
+    <li class="list-group-item"><b>Unidade:</b> {{ produto.unidade }}</li>
+    <li class="list-group-item"><b>Preço:</b> R$ {{ produto.preco }}</li>
+</ul>
+<a href="/produtos/" class="btn btn-secondary">Voltar para lista</a>
+<a href="/produtos/{{ produto.id }}/editar" class="btn btn-warning">Editar</a>
+{% endblock %}

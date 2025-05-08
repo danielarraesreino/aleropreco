@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Editar' if receita else 'Nova' }} Receita - AleroPreco{% endblock %}
+{% block content %}
+<h1>{{ 'Editar' if receita else 'Nova' }} Receita</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" value="{{ receita.nome if receita else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="custo" class="form-label">Custo</label>
+        <input type="number" min="0" step="0.01" class="form-control" id="custo" name="custo" value="{{ receita.custo if receita else '' }}" required>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="/receitas/" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

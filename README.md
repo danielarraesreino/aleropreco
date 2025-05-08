@@ -19,50 +19,73 @@ AleroPreco é um sistema de controle de custos para restaurantes, bares e cozinh
 - Upload de fotos de receitas (em breve)
 - E aquela pitada de código bem temperado
 
-## Stack Filosófico-Técnica
-
-- **Backend:** Python + Flask
-- **Banco de Dados:** SQLAlchemy + SQLite
-- **Frontend:** HTML/CSS/Bootstrap + JavaScript
-- **Imagem:** OpenCV + pyzbar
-- **Web Scraping:** BeautifulSoup
-- **Dashboard:** Streamlit
 
 ## Por quê?
-
 Porque controlar custos é mais que uma planilha: é um estado de espírito. É saber que cada ingrediente tem uma história, um preço e um impacto no seu negócio. O AleroPreco nasceu da busca pelo equilíbrio entre sabor e sustentabilidade financeira.
+
+---
 
 ## Instalação
 
-```bash
-git clone git@github.com:danielarraesreino/aleropreco.git
-cd aleropreco
-./setup_aleropreco.sh
-# Crie seu .env a partir do .env.example
-# Ative o virtualenv e rode:
-flask db upgrade
-flask run
-```
+1. Clone este repositório
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Configure o ambiente (crie um arquivo `.env` se necessário)
+4. Execute as migrations:
+   ```bash
+   flask db upgrade
+   ```
+5. Rode o servidor:
+   ```bash
+   flask run --debug
+   ```
 
-## Estrutura Zen
+---
 
-```
-aleropreco/
-├── app/
-│   ├── models/
-│   ├── templates/
-│   ├── static/
-│   └── ...
-├── migrations/
-├── requirements.txt
-├── setup_aleropreco.sh
-└── README.md  # <- você está aqui
-```
+## Funcionalidades
+- Cadastro e gerenciamento de produtos, fornecedores, receitas e compras
+- Cálculo automático de custos
+- Dashboard com visão geral
+- Templates modernos e responsivos
+- Estrutura pronta para uploads, leitura de QR Code, scraping de preços e autenticação
+
+---
+
+## Onboarding rápido
+1. Acesse a home e navegue pelo menu principal
+2. Cadastre produtos, fornecedores, receitas e compras
+3. Visualize o dashboard para acompanhar custos
+4. Use o menu global para acessar qualquer funcionalidade
+
+---
+
+## Prints e exemplos
+
+> **Home:**
+>
+> ![Home](docs/print-home.png)
+>
+> **Produtos:**
+>
+> ![Produtos](docs/print-produtos.png)
+
+---
+
+## Fluxo típico
+1. Cadastre seus produtos e fornecedores
+2. Lance uma compra vinculando produtos e fornecedores
+3. Crie receitas e associe ingredientes
+4. Veja os custos calculados automaticamente
+5. Acompanhe tudo pelo dashboard
+
+---
 
 ## Contribuindo
+Pull requests são bem-vindos! Para grandes mudanças, abra uma issue antes.
 
-Pull requests são bem-vindos! Só não esqueça de filosofar nos commits.
+---
 
 ## Licença
-
-MIT. Use, abuse, mas não esqueça de dar crédito ao cozinheiro.
+MIT

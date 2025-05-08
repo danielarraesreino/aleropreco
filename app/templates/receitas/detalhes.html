@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes da Receita - AleroPreco{% endblock %}
+{% block content %}
+<h1>Detalhes da Receita #{{ receita.id }}</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><b>Nome:</b> {{ receita.nome }}</li>
+    <li class="list-group-item"><b>Custo:</b> R$ {{ receita.custo }}</li>
+</ul>
+<a href="/receitas/" class="btn btn-secondary">Voltar para lista</a>
+<a href="/receitas/{{ receita.id }}/editar" class="btn btn-warning">Editar</a>
+{% endblock %}
