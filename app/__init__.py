@@ -46,9 +46,10 @@ def create_app():
     def healthz():
         return "ok"
 
+    from flask import render_template
     @app.route("/")
     def index():
-        return "AleroPreco está no ar! 🚀"
+        return render_template("index.html")
 
     return app
 
