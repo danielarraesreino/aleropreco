@@ -29,6 +29,10 @@ def create_app():
     login_manager.init_app(app)
     csrf.init_app(app)
 
+    @login_manager.user_loader
+    def load_user(user_id):
+        return None
+
     # Importa e registra blueprints
     # Registra blueprints restaurados
     from app.routes import main_bp
